@@ -6,17 +6,28 @@ class Weather extends React.Component {
     }
 
     render() {
-        console.log("wet ");
-        console.log(this.props.weather);
-        return (
-            <div>
-                <p>Weather haha</p>
-                <p>City: {this.props.weather.name}</p>
-                <p>Temp: {this.props.weather.main.temp}</p>
-                <p>feels_like: {this.props.weather.main.feels_like}</p>
-                <p>humidity: {this.props.weather.main.humidity}</p>
-            </div>
-        )
+        const weather = this.props.weather;
+        if (typeof weather === "undefined") {
+            return (
+                <div>
+                    <p>
+                        Inputted data is not valid or not found. <br />
+                        Please try again
+                    </p>
+                </div>
+            )
+        }
+        if (weather.name != null) {
+            return (
+                <div>
+                    <p>Current Weather</p>
+                    <p>City: {this.props.weather.name}</p>
+                    <p>Temparature: {this.props.weather.main.temp}</p>
+                    <p>Real feel: {this.props.weather.main.feels_like}</p>
+                    <p>Humidity: {this.props.weather.main.humidity} %</p>
+                </div>
+            )
+        }       
     }
 }
 
