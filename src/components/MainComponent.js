@@ -60,9 +60,10 @@ const Main = () =>  {
             </div>
             <div>
                 <h3>Add new City</h3>
-                <p>Form goes here ....</p>
+                <Form postCity={postCity} />
+                
             </div>
-            <div>
+            <div className='all-users'>
                 <Menu 	
                     cities={cities}
                     setCities={setCities}

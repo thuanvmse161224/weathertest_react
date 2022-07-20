@@ -3,9 +3,9 @@ import Main from './components/MainComponent';
 import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
-    <div>
+    <main>
       <Main />
-    </div>
+    </main>
   );
 }
 
