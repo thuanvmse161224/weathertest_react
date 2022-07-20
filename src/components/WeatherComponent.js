@@ -1,12 +1,8 @@
 import React from "react";
-import { CITY } from "../shared/City";
 
 class Weather extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            cities: CITY
-        }
     }
 
     render() {        

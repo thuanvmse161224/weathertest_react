@@ -35,14 +35,14 @@ const Form2 = ({ cityData = {}, postCity, updateCity }) => {
 			<input
 				type='text'
 				name='name'
-				value={cities.name}
+				value={city.name}	
 				placeholder='Name'
 				onChange={e => handleValue(e)}
 			/>
 			<input
 				type='text'
 				name='country'
-				value={cities.country}
+				value={city.country}
 				placeholder='Country code: US, UK, FR, DE, KR, ...'
 				onChange={e => handleValue(e)}
 			/>
@@ -55,5 +55,5 @@ const Form2 = ({ cityData = {}, postCity, updateCity }) => {
 	)
 }
 
-export default {Form, Form2};
+export default Form;
 

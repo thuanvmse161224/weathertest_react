@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Form from "./Form";
 import Titles from "./Titles";
 import Weather from "./WeatherComponent";
-
+import { Route, Routes } from "react-router-dom";
 import { httpHelper } from "../helpers/httpHelper";
+import Header from "./HeaderComponent";
 
 const API_KEY = "02aa93d97bf3338ee688e4d7b6f25fab";
 
@@ -34,11 +35,13 @@ class Main extends Component {
     //container compo
     render() {
         return (
-            <div>
-                <Titles />
-                <Form getWeather = {this.getWeather}/>
-                <Weather weather = {this.state.weather}/>
-            </div>
+            <>
+                <div>
+                    <Titles />
+                    <Form getWeather = {this.getWeather}/>
+                    <Weather weather = {this.state.weather}/>
+                </div>            
+            </>
         )
     }
 }
@@ -46,36 +49,24 @@ class Main extends Component {
 export default Main;
 
 /*
-        const DishWithId = ({match}) => {
-            return (
-                <DishDetail 
-                    dish = {this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-                    comments = {this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} 
-                />
-            )
-        };
-        //with id should somehow call the search weather
-        //but even when no add can still search
-        //=> no id, id is kinda useless in this
         return (
             <div>
-                <Routes>
-                    <Route path='/Home' component={HomePage} />
+                <Switch>
                     <Route exact path='/Menu' 
                         component={() => 
                             <Table 	
-                                users={users}
-                                setUsers={setUsers}
-                                postUser={postUser}
-                                updateUser={updateUser}
-                                deleteUser={deleteUser}
+                                citys={citys}
+                                setCities={setCities}
+                                postCity={postCity}
+                                updateCity={updateCity}
+                                deleteCity={deleteCity}
                             /> 
                         } 
                     />
-                    <Route path='/Menu/:dishId' component={Weather something () => <Weather city= country=/>} />
-                    <Route path='/Weather' component={search and show} />
-                    <Redirect to="/Home"/>
-                </Routes>
+                    <Route path='/Weather'/>
+                    <Route path='/Weather/:name/:country'/>
+                    <Redirect to="/Menu"/>
+                </Switch>
             </div>
         )
 */

@@ -1,8 +1,10 @@
 import React from "react";
-import {Form, Form2} from "./Form";
+//import { Row, Col } from 'reactstrap';
+//import Form2 from "./Form";
+import { Link } from 'react-router-dom';
 
 //data compo, but also presentation compo
-const Menu = ({ citys, postCity, updateCity, deleteCity }) => {
+const Table = ({ citys, postCity, updateCity, deleteCity }) => {
 	const showUpdateCity = id => {
 		const form = document.getElementsByClassName(`show-form-${id}`)
 		form[0].classList.toggle("hide-form")
@@ -17,10 +19,13 @@ const Menu = ({ citys, postCity, updateCity, deleteCity }) => {
 					<div className='buttons'>
 						<button onClick={() => showUpdateCity(city.id)}>Update</button>
 						<button onClick={() => deleteCity(city.id)}>Delete</button>
+                        <Link to={`/Weather/${city.name}/${city.country}`}>Watch the Weather</Link>
 					</div>
 				</div>
 				<div className={`hide-form show-form-${city.id}`}>
-					<Form2 cityData={city} postCity={postCity} updateCity={updateCity} />
+                    {
+					//<Form2 cityData={city} postCity={postCity} updateCity={updateCity} />
+                    }
 				</div>
 			</>
 		)
