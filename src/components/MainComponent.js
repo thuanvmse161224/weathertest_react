@@ -6,9 +6,12 @@ import Weather from "./WeatherComponent";
 const API_KEY = "02aa93d97bf3338ee688e4d7b6f25fab";
 
 class Main extends Component {
-    state = {
-        weather:undefined
-    }
+    constructor (props) {
+        super(props);
+        this.state = {
+            weather:undefined
+        }
+    } 
 
     getWeather = async (e) => {
         e.preventDefault();

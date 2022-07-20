@@ -1,21 +1,30 @@
 import React from "react";
+import { CITY } from "../shared/City";
 
 class Weather extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            cities: CITY
+        }
     }
 
     render() {
+        /*
+        const menu = this.props.cities.map((city) => {
+            return (
+                <div key={city.name + " " + city.country} className="">
+                    
+                </div>
+            );
+        });
+        */
+        
         const weather = this.props.weather;
         if (typeof weather === "undefined") {
             return (
-                <div>
-                    <p>
-                        Inputted data is not valid or not found. <br />
-                        Please try again
-                    </p>
-                </div>
-            )
+                <p>You haven't inputted or the data was not found in the API</p>
+            );
         }
         if (weather.name != null) {
             return (
