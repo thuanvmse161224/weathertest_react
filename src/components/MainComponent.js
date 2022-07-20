@@ -44,3 +44,38 @@ class Main extends Component {
 }
 
 export default Main;
+
+/*
+        const DishWithId = ({match}) => {
+            return (
+                <DishDetail 
+                    dish = {this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
+                    comments = {this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} 
+                />
+            )
+        };
+        //with id should somehow call the search weather
+        //but even when no add can still search
+        //=> no id, id is kinda useless in this
+        return (
+            <div>
+                <Routes>
+                    <Route path='/Home' component={HomePage} />
+                    <Route exact path='/Menu' 
+                        component={() => 
+                            <Table 	
+                                users={users}
+                                setUsers={setUsers}
+                                postUser={postUser}
+                                updateUser={updateUser}
+                                deleteUser={deleteUser}
+                            /> 
+                        } 
+                    />
+                    <Route path='/Menu/:dishId' component={Weather something () => <Weather city= country=/>} />
+                    <Route path='/Weather' component={search and show} />
+                    <Redirect to="/Home"/>
+                </Routes>
+            </div>
+        )
+*/

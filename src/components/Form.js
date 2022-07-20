@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { FormGroup, Input, Label, Button } from "reactstrap";
 
 const Form = props => (
 	<form onSubmit={props.getWeather}>
@@ -10,12 +11,7 @@ const Form = props => (
 	</form>
 );
 
-export default Form;
-
-/*
-import React, { useState } from "react"
-
-const Form = ({ cityData = {}, postCity, updateCity }) => {
+const Form2 = ({ cityData = {}, postCity, updateCity }) => {
 	const [city, setCity] = useState({
 		name: cityData.name ?? "",
 		country: cityData.country ?? "",
@@ -59,6 +55,5 @@ const Form = ({ cityData = {}, postCity, updateCity }) => {
 	)
 }
 
-export default Form;
+export default {Form, Form2};
 
-*/
