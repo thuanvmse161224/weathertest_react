@@ -3,22 +3,16 @@
         {
             "id": 0,
             "name":"Ho Chi Minh City",
-            "lat":10.7758439,
-            "lon":106.7017555,
             "country":"VN"
         },
         {
             "id": 1,
             "name":"Hanoi",
-            "lat":21.0294498,
-            "lon":105.8544441,
             "country":"VN"
         },
         {
             "id": 2,
             "name":"Haiphong",
-            "lat":20.858864,
-            "lon":106.6749591,
             "country":"VN"
         }
     ]

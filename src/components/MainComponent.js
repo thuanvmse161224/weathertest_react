@@ -3,6 +3,8 @@ import Form from "./Form";
 import Titles from "./Titles";
 import Weather from "./WeatherComponent";
 
+import { httpHelper } from "../helpers/httpHelper";
+
 const API_KEY = "02aa93d97bf3338ee688e4d7b6f25fab";
 
 class Main extends Component {
@@ -29,7 +31,7 @@ class Main extends Component {
             }
         };
     }
-    //presentational
+    //container compo
     render() {
         return (
             <div>
