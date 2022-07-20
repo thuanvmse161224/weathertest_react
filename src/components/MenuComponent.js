@@ -1,10 +1,10 @@
 import React from "react";
-//import { Row, Col } from 'reactstrap';
+import { Table } from 'reactstrap';
 //import Form2 from "./Form";
 import { Link } from 'react-router-dom';
 
 //data compo, but also presentation compo
-const Table = ({ citys, postCity, updateCity, deleteCity }) => {
+const Menu = ({ cities, postCity, updateCity, deleteCity }) => {
 	const showUpdateCity = id => {
 		const form = document.getElementsByClassName(`show-form-${id}`)
 		form[0].classList.toggle("hide-form")
@@ -13,36 +13,35 @@ const Table = ({ citys, postCity, updateCity, deleteCity }) => {
 	const Row = ({ city }) => {
 		return (
 			<>
-				<div className='row'>
-					<div>{city.name}</div>
-					<div>{city.country}</div>
-					<div className='buttons'>
+				<tr>
+					<td>{city.name}</td>
+					<td>{city.country}</td>
+					<td className='buttons'>
 						<button onClick={() => showUpdateCity(city.id)}>Update</button>
 						<button onClick={() => deleteCity(city.id)}>Delete</button>
-                        <Link to={`/Weather/${city.name}/${city.country}`}>Watch the Weather</Link>
-					</div>
-				</div>
-				<div className={`hide-form show-form-${city.id}`}>
-                    {
-					//<Form2 cityData={city} postCity={postCity} updateCity={updateCity} />
-                    }
-				</div>
+                        <a href='#${city.id}'>Watch Weather</a>
+					</td>
+				</tr>
+                
+
 			</>
 		)
 	}
 
 	return (
-		<div className='table'>
-			<div className='titles'>
-				<div>Name</div>
-				<div>Country</div>
-				<div>Actions</div>
-			</div>
-			<div className='rows'>
-				{citys && citys.map(city => <Row city={city} key={city.id} />)}
-			</div>
-		</div>
+		<Table striped bordered>
+			<thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Actions</th>
+                </tr>
+			</thead>
+			<tbody>
+				{cities && cities.map(city => <Row city={city} key={city.id} />)}
+			</tbody>
+		</Table>
 	)
 }
 
-export default Table;
+export default Menu;

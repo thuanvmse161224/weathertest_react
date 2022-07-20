@@ -31,7 +31,7 @@ const Form2 = ({ cityData = {}, postCity, updateCity }) => {
 	}
 
 	return (
-		<form onSubmit={submitCity} className='row'>
+		<form onSubmit={submitCity}>
 			<input
 				type='text'
 				name='name'
