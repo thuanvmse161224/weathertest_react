@@ -9,17 +9,7 @@ class Weather extends React.Component {
         }
     }
 
-    render() {
-        /*
-        const menu = this.props.cities.map((city) => {
-            return (
-                <div key={city.name + " " + city.country} className="">
-                    
-                </div>
-            );
-        });
-        */
-        
+    render() {        
         const weather = this.props.weather;
         if (typeof weather === "undefined") {
             return (
