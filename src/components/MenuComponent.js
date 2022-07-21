@@ -23,7 +23,7 @@ const Menu = ({ cities, postCity, updateCity, deleteCity }) => {
                         <button onClick={() => deleteCity(city.id)}>
                             Delete
                         </button> 
-                        <a href="#${city.id}">Watch Weather</a>
+                        <Link to={`/Weather/${city.name}/${city.country}`}>Watch Weather</Link>
                     </div>
                 </div>
 				<div className={`hide-form show-form-${city.id}`}>
@@ -34,17 +34,25 @@ const Menu = ({ cities, postCity, updateCity, deleteCity }) => {
 	}
 
 	return (
-		<div className='table'>
-			<div className='titles'>
-                <div>Name</div>
-                <div>Country</div>
-                <div>Actions</div>
-			</div>
-            <div className='rows'>
-                {cities && cities.map(city => <Row city={city} key={city.id} />)}
+        <>
+            <div>
+                <h3>Add new City</h3>
+                <Form postCity={postCity} />
             </div>
-			
-		</div>
+
+            <div className='all-users table'>
+                <div className='titles'>
+                    <div>Name</div>
+                    <div>Country</div>
+                    <div>Actions</div>
+                </div>
+                <div className='rows'>
+                    {cities && cities.map(city => <Row city={city} key={city.id} />)}
+                </div>
+                
+            </div>        
+        </>
+
 	)
 }
 

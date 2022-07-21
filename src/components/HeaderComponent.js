@@ -20,16 +20,13 @@ class Header extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar dark expand="md">
+				<Navbar light expand="md">
 					<div className="container">
 						<NavbarToggler onClick={this.toggleNav}/>
 						<Collapse isOpen={this.state.isNavOpen} navbar>
 							<Nav navbar className="ml-auto">
 								<NavItem>
 									<NavLink className="nav-link" to="/Menu"><span class="fa fa-home fa-lg"></span> Menu</NavLink>
-								</NavItem>
-								<NavItem>
-									<NavLink className="nav-link" to="/Weather"><span class="fa fa-info fa-lg"></span>  Search Weather</NavLink>
 								</NavItem>
 							</Nav>
 						</Collapse>

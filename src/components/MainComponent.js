@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Form from "./Form";
-import Titles from "./Titles";
+import WeatherDetails from "./WeatherDetailsComponent";
 import Weather from "./WeatherComponent";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { httpHelper } from "../helpers/httpHelper";
 import Header from "./HeaderComponent";
 import Menu from "./MenuComponent";
@@ -55,49 +54,27 @@ const Main = () =>  {
 
     return (
         <>
-            <div>
-                <Titles />
-            </div>
-            <div>
-                <h3>Add new City</h3>
-                <Form postCity={postCity} />
-                
-            </div>
-            <div className='all-users'>
-                <Menu 	
-                    cities={cities}
-                    setCities={setCities}
-                    postCity={postCity}
-                    updateCity={updateCity}
-                    deleteCity={deleteCity}
-                /> 
-            </div>            
+            <Header />
+            <Switch>
+                <Route exact path='/Menu' 
+                    component={() => 
+                        <Menu 	
+                            cities={cities}
+                            setCities={setCities}
+                            postCity={postCity}
+                            updateCity={updateCity}
+                            deleteCity={deleteCity}
+                        /> 
+                    } 
+                />
+                <Route exact path='/Weather' component={WeatherDetails} />
+                <Route exact path='/Weather/:name/:country' component={Weather}/>
+                <Redirect to="/Menu" />
+            </Switch>
+
         </>
     )
     
 }
 
 export default Main;
-
-/*
-        return (
-            <div>
-                <Switch>
-                    <Route exact path='/Menu' 
-                        component={() => 
-                            <Table 	
-                                cities={cities}
-                                setCities={setCities}
-                                postCity={postCity}
-                                updateCity={updateCity}
-                                deleteCity={deleteCity}
-                            /> 
-                        } 
-                    />
-                    <Route path='/Weather'/>
-                    <Route path='/Weather/:name/:country'/>
-                    <Redirect to="/Menu"/>
-                </Switch>
-            </div>
-        )
-*/
