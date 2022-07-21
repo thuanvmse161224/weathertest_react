@@ -12,14 +12,13 @@ class Weather extends Component {
     }
 
     getWeather = async () => {
-        console.log("invoke in weather compo");
         const name = this.props.match.params.name;
         const country = this.props.match.params.country;
-        const Geo_api_call = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${name},${country}&limit=1&appid=${API_KEY}`);
+        const Geo_api_call = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${name},${country}&limit=1&appid=${API_KEY}`);
         const geoData = await Geo_api_call.json();
         if (typeof geoData[0] !== "undefined") {  
             if (geoData[0].name != null) {
-                const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${geoData[0].lat}&lon=${geoData[0].lon}&appid=${API_KEY}&units=metric`);
+                const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${geoData[0].lat}&lon=${geoData[0].lon}&appid=${API_KEY}&units=metric`);
                 const weatherData = await api_call.json();
                 this.setState ({
                     weather: weatherData
@@ -29,7 +28,6 @@ class Weather extends Component {
     }
     
     render() {
-        console.log(this);
         return(
             <div>
                 <button onClick={() => this.getWeather()}>Click here to show the data</button>
